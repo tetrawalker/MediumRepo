@@ -3,7 +3,6 @@ FROM "ubuntu:bionic"
 MAINTAINER chamalgomes166@outlook.com
 
 RUN useradd -ms /bin/bash docker
-
 RUN su docker
 
 RUN export DATE_LOG=`echo $(date "+%Y%m%d-%H%M%S")`
@@ -19,12 +18,10 @@ RUN apt-get update | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LO
   && ln -s /usr/bin/python3 /usr/local/bin/python | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER} \
   && pip3 install --upgrade pip | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER}
 
-RUN pip3 install jupyter
-RUN pip3 install tensorflow
-RUN pip3 install matplotlib 
-
+COPY requirements.txt /root/datascience/requirements.txt
 WORKDIR /root/datascience
-
+RUN pip3 install -r requirements.txt
+ 
 RUN jupyter notebook --generate-config --allow-root
 RUN echo "c.NotebookApp.password = u'sha1:6a3f528eec40:6e896b6e4828f525a6e20e5411cd1c8075d68619'" >> /root/.jupyter/jupyter_notebook_config.py
 
