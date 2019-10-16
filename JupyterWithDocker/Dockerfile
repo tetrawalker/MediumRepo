@@ -7,7 +7,7 @@ RUN useradd -ms /bin/bash docker
 RUN su docker
 
 RUN export DATE_LOG=`echo $(date "+%Y%m%d-%H%M%S")`
-ENV LOG_DIR_DOCKER="/root/DockerLogs"
+ENV LOG_DIR_DOCKER="/root/dockerLogs"
 ENV LOG_INSTALL_DOCKER="/root/dockerLogs/install-logs.log"
 
 RUN mkdir -p ${LOG_DIR_DOCKER} \
