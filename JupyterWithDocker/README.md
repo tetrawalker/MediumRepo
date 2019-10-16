@@ -17,3 +17,7 @@ then retype:
 
 	docker-compose up 
  
+To access the log file run 
+
+	docker exec -it  /bin/bash 
+	
