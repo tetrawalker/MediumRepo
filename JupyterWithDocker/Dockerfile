@@ -2,11 +2,22 @@ FROM "ubuntu:bionic"
 
 MAINTAINER chamalgomes166@outlook.com
 
-RUN apt-get update \
-  && apt-get install -y python3-pip python3-dev \
-  && cd /usr/local/bin \
-  && ln -s /usr/bin/python3 python \
-  && pip3 install --upgrade pip
+RUN useradd -ms /bin/bash docker
+
+RUN su docker
+
+RUN export DATE_LOG=`echo $(date "+%Y%m%d-%H%M%S")`
+ENV LOG_DIR_DOCKER="/root/DockerLogs"
+ENV LOG_INSTALL_DOCKER="/root/dockerLogs/$(DATE_LOG)-gsd-install.log"
+
+WORKDIR ${LOG_DIR_DOCKER}
+RUN touch ${LOG_INSTALL_DOCKER}  \
+ &&  echo "Logs directory and file created"  | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER}
+
+RUN apt-get update | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER} \
+  && apt-get install -y python3-pip python3-dev | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER} \
+  && ln -s /usr/bin/python3 /usr/local/bin/python | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER} \
+  && pip3 install --upgrade pip | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER}
 
 RUN pip3 install jupyter
 
