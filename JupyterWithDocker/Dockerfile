@@ -8,7 +8,7 @@ RUN su docker
 
 RUN export DATE_LOG=`echo $(date "+%Y%m%d-%H%M%S")`
 ENV LOG_DIR_DOCKER="/root/DockerLogs"
-ENV LOG_INSTALL_DOCKER="/root/dockerLogs/$(DATE_LOG)-gsd-install.log"
+ENV LOG_INSTALL_DOCKER="$(DATE_LOG)-gsd-install.log"
 
 WORKDIR ${LOG_DIR_DOCKER}
 RUN touch ${LOG_INSTALL_DOCKER}  \
