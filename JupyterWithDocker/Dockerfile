@@ -6,9 +6,9 @@ RUN useradd -ms /bin/bash docker
 
 RUN su docker
 
-RUN export DATE_LOG=`date "+%Y%m%d-%H%M%S"`
+RUN export DATE_LOG=`echo $(date "+%Y%m%d-%H%M%S")`
 ENV LOG_DIR_DOCKER="/root/DockerLogs"
-ENV LOG_INSTALL_DOCKER="/root/DockerLogs/log-${DATE_LOG}-install.log"
+ENV LOG_INSTALL_DOCKER="/root/DockerLogs/$(DATE_LOG)-gsd-install.log"
 
 RUN mkdir -p ${LOG_DIR_DOCKER} \
  && touch ${LOG_INSTALL_DOCKER}  \
