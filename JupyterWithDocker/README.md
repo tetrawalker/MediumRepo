@@ -19,5 +19,8 @@ DONE!!!!! Now visit http://localhost:8888 on you web browser
  
 If you run into trouble run the following command to download the logfile to your current directory
 
-	docker cp {container-id}:/root/dockerLogs/install-logs.log .
+	docker cp <container-name>:/root/dockerLogs/install-logs.log .
 	
+If you want to start an interactive session inside the container type in the following command 
+
+	docker exec -it <container name> /bin/bash
