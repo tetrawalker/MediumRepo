@@ -19,5 +19,5 @@ DONE!!!!! Now visit http://localhost:8888 on you web browser
  
 If you run into trouble run the following command to download the logfile to your current directory
 
-	docker cp datascience:/root/dockerLogs/install-logs.log .
+	docker cp {container-id}:/root/dockerLogs/install-logs.log .
 	
