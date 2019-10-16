@@ -9,5 +9,5 @@ object_detection:
      - "8888:8888"         #JupyterNB
 
   volumes:
-     - /Users/chamalgomes/Documents/Python/GitHub/DeepLearning/Dockerfiles/JUPYTER/test.txt:/root/Datascience/test.txt
+     - /Users/chamalgomes/Documents/Python/GitHub/DeepLearning/Dockerfiles/JUPYTER/test.txt:/root/datascience/test.txt
 
