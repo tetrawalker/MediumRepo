@@ -20,6 +20,8 @@ RUN apt-get update | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LO
   && pip3 install --upgrade pip | sed -e "s/^/$(date +%Y%m%d-%H%M%S) :  /" 2>&1 | tee -a ${LOG_INSTALL_DOCKER}
 
 RUN pip3 install jupyter
+RUN pip3 install tensorflow
+RUN pip3 install matplotlib 
 
 WORKDIR /root/datascience
 
