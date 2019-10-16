@@ -17,7 +17,7 @@ then retype:
 
 	docker-compose up 
  
-To access the log file run 
+If you run into trouble run the following command to download the logfile to your current directory
 
-	docker exec -it  /bin/bash 
+	docker cp datascience:/root/DockerLogs .
 	
