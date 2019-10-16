@@ -19,5 +19,5 @@ then retype:
  
 If you run into trouble run the following command to download the logfile to your current directory
 
-	docker cp datascience:/root/DockerLogs .
+	docker cp {container_name}:/root/DockerLogs .
 	
