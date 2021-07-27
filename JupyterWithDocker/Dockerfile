@@ -1,6 +1,6 @@
 FROM "ubuntu:bionic"
 
-MAINTAINER chamalgomes166@outlook.com
+MAINTAINER chamal@outlook.com
 
 RUN useradd -ms /bin/bash docker
 RUN su docker
